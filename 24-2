@@ -1,0 +1,26 @@
+class Animal {
+    public String sound() {
+        return "Животное издаёт звук";
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    public String sound() {  
+        return "Собака лает: Гав-гав!";
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal animal = new Animal();
+        Dog dog = new Dog();
+        
+        System.out.println(animal.sound());
+        System.out.println(dog.sound());
+        
+        // Полиморфизм
+        Animal poly = new Dog();
+        System.out.println(poly.sound());  // вызывается метод Dog, а не Animal
+    }
+}
