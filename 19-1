@@ -1,0 +1,43 @@
+public enum Planet {
+    // Константы с параметрами
+    MERCURY(3.3e23, 2.44e6),
+    VENUS(4.87e24, 6.05e6),
+    EARTH(5.98e24, 6.38e6),
+    MARS(6.42e23, 3.40e6),
+    JUPITER(1.90e27, 7.15e7),
+    SATURN(5.68e26, 6.03e7),
+    URANUS(8.68e25, 2.56e7),
+    NEPTUNE(1.02e26, 2.48e7);
+    
+    // Поля
+    private double mass;
+    private double radius;
+    
+    // Конструктор (всегда private)
+    Planet(double mass, double radius) {
+        this.mass = mass;
+        this.radius = radius;
+    }
+    
+    // Геттеры
+    public double getMass() {
+        return mass;
+    }
+    
+    public double getRadius() {
+        return radius;
+    }
+    
+    // Метод для вычисления поверхностной гравитации
+    public double getSurfaceGravity() {
+        double G = 6.67430e-11;
+        return G * mass / (radius * radius);
+    }
+    
+    public static void main(String[] args) {
+        for (Planet p : Planet.values()) {
+            System.out.printf("%s: масса = %.2e кг, радиус = %.2e м%n", 
+                p, p.getMass(), p.getRadius());
+        }
+    }
+}
