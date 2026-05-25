@@ -1,0 +1,47 @@
+public class Practice1 {
+    public static void main(String[] args) {
+        
+        // 1. byte
+        byte b = 1;
+        switch(b) {
+            case 1: System.out.println("byte: 1"); break;
+            default: System.out.println("byte: другое");
+        }
+        
+        // 2. short
+        short s = 2;
+        switch(s) {
+            case 2: System.out.println("short: 2"); break;
+            default: System.out.println("short: другое");
+        }
+        
+        // 3. int
+        int i = 3;
+        switch(i) {
+            case 3: System.out.println("int: 3"); break;
+            default: System.out.println("int: другое");
+        }
+        
+        // 4. char
+        char c = 'A';
+        switch(c) {
+            case 'A': System.out.println("char: A"); break;
+            default: System.out.println("char: другое");
+        }
+        
+        // 5. String
+        String str = "Привет";
+        switch(str) {
+            case "Привет": System.out.println("String: Привет"); break;
+            default: System.out.println("String: другое");
+        }
+        
+        // 6. enum
+        enum Day { MONDAY, TUESDAY }
+        Day day = Day.MONDAY;
+        switch(day) {
+            case MONDAY: System.out.println("enum: MONDAY"); break;
+            default: System.out.println("enum: другое");
+        }
+    }
+}
