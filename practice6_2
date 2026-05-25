@@ -1,0 +1,51 @@
+public class Practice2 {
+    public static void main(String[] args) {
+        
+        System.out.println("=== Способы создания Boolean ===\n");
+        
+        // 1. Через конструктор 
+        Boolean bool1 = new Boolean(true);
+        Boolean bool2 = new Boolean(false);
+        System.out.println("1. new Boolean(true): " + bool1);
+        System.out.println("   new Boolean(false): " + bool2);
+        
+        // 2. Через конструктор со строкой
+        // "true" -> true, любая другая строка -> false
+        Boolean bool3 = new Boolean("true");
+        Boolean bool4 = new Boolean("TRUE");
+        Boolean bool5 = new Boolean("false");
+        Boolean bool6 = new Boolean("привет");
+        System.out.println("\n2. new Boolean(\"true\"): " + bool3);
+        System.out.println("   new Boolean(\"TRUE\"): " + bool4);
+        System.out.println("   new Boolean(\"false\"): " + bool5);
+        System.out.println("   new Boolean(\"привет\"): " + bool6);
+        
+        // 3. Метод valueOf() 
+        Boolean bool7 = Boolean.valueOf(true);
+        Boolean bool8 = Boolean.valueOf(false);
+        System.out.println("\n3. Boolean.valueOf(true): " + bool7);
+        System.out.println("   Boolean.valueOf(false): " + bool8);
+        
+        // 4. Метод valueOf() со строкой
+        Boolean bool9 = Boolean.valueOf("true");
+        Boolean bool10 = Boolean.valueOf("TRUE");
+        Boolean bool11 = Boolean.valueOf("false");
+        Boolean bool12 = Boolean.valueOf("любая строка");
+        System.out.println("\n4. Boolean.valueOf(\"true\"): " + bool9);
+        System.out.println("   Boolean.valueOf(\"TRUE\"): " + bool10);
+        System.out.println("   Boolean.valueOf(\"false\"): " + bool11);
+        System.out.println("   Boolean.valueOf(\"любая строка\"): " + bool12);
+        
+        // 5. Автоупаковка
+        Boolean bool13 = true;   
+        Boolean bool14 = false;
+        System.out.println("\n5. Автоупаковка: true -> " + bool13);
+        System.out.println("   Автоупаковка: false -> " + bool14);
+    
+        // 6. Прямое присваивание констант Boolean.TRUE и Boolean.FALSE
+        Boolean bool17 = Boolean.TRUE;
+        Boolean bool18 = Boolean.FALSE;
+        System.out.println("\n7. Boolean.TRUE: " + bool17);
+        System.out.println("   Boolean.FALSE: " + bool18);
+    }
+}
