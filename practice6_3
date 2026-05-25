@@ -1,0 +1,7 @@
+public class Practice3 {
+    public static void main(String[] args) {
+        Integer x = null;
+        int y = x;  // Здесь будет ошибка
+        System.out.println(y);
+    }
+}
