@@ -1,0 +1,87 @@
+//перегрузка
+
+class Calculator {
+    
+    // Перегрузка по количеству параметров
+    public int sum(int a, int b) {
+        System.out.print("sum(int, int) -> ");
+        return a + b;
+    }
+    
+    public int sum(int a, int b, int c) {
+        System.out.print("sum(int, int, int) -> ");
+        return a + b + c;
+    }
+    
+    // Перегрузка по типу параметров
+    public double sum(double a, double b) {
+        System.out.print("sum(double, double) -> ");
+        return a + b;
+    }
+    
+    // Перегрузка по порядку параметров
+    public String sum(String a, int b) {
+        System.out.print("sum(String, int) -> ");
+        return a + b;
+    }
+    
+    public String sum(int a, String b) {
+        System.out.print("sum(int, String) -> ");
+        return a + b;
+    }
+    
+    // Тип возвращаемого значения НЕ влияет на перегрузку!
+    // Так нельзя: public int sum(int a, int b) и public double sum(int a, int b) - ошибка!
+}
+
+
+// переопределение
+
+class Animal {
+    public void sound() {
+        System.out.println("Животное издаёт звук");
+    }
+    
+    public String getName() {
+        return "Животное";
+    }
+    
+}
+
+class Dog extends Animal {
+    
+    @Override  // аннотация, проверяет что метод действительно переопределяет
+    public void sound() {
+        System.out.println("Собака лает: Гав-гав!");
+    }
+    
+    @Override
+    public String getName() {
+        return "Собака";
+    }
+    
+    @Override
+    public void move(String destination) {
+        System.out.println("Собака бежит в " + destination);
+    }
+}
+
+class Cat extends Animal {
+    
+    @Override
+    public void sound() {
+        System.out.println("Кошка мяукает: Мяу-мяу!");
+    }
+    
+    @Override
+    public String getName() {
+        return "Кошка";
+    }
+    
+    @Override
+    public void move(String destination) {
+        System.out.println("Кошка крадётся в " + destination);
+    }
+}
+
+
