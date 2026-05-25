@@ -1,0 +1,21 @@
+public class Main {
+    public static void main(String[] args) {
+        String str = "Число: ";
+        
+        int i = 42;
+        double d = 3.14;
+        boolean b = true;
+        char c = 'A';
+        
+        System.out.println(str + i);        // Число: 42
+        System.out.println(str + d);        // Число: 3.14
+        System.out.println(str + b);        // Число: true
+        System.out.println(str + c);        // Число: A
+        
+        String result = "Сумма: " + 10 + 20;  
+        System.out.println(result);  // Сумма: 1020 
+        
+        String result2 = "Сумма: " + (10 + 20);
+        System.out.println(result2);  // Сумма: 30
+    }
+}
