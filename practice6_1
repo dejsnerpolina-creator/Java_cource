@@ -1,0 +1,41 @@
+public class Practice1 {
+    public static void main(String[] args) {
+          
+        // Десятичная система 
+        Integer dec1 = Integer.decode("100");
+        Integer dec2 = Integer.decode("+100");
+        Integer dec3 = Integer.decode("-50");
+        
+        System.out.println("decode(\"100\") = " + dec1);
+        System.out.println("decode(\"+100\") = " + dec2);
+        System.out.println("decode(\"-50\") = " + dec3);
+        
+        // Шестнадцатеричная система 
+        Integer hex1 = Integer.decode("0xFF");    // FF = 255
+        Integer hex2 = Integer.decode("0x10");    // 10 = 16
+        Integer hex3 = Integer.decode("#A");      // A = 10
+        
+        System.out.println("\ndecode(\"0xFF\") = " + hex1);
+        System.out.println("decode(\"0x10\") = " + hex2);
+        System.out.println("decode(\"#A\") = " + hex3);
+        
+        // Восьмеричная система 
+        Integer oct1 = Integer.decode("077");     // 77 в восьмеричной = 63
+        Integer oct2 = Integer.decode("010");     // 10 в восьмеричной = 8
+        
+        System.out.println("\ndecode(\"077\") = " + oct1);
+        System.out.println("decode(\"010\") = " + oct2);
+        
+        // Двоичная система 
+        Integer bin = Integer.decode("0b1010");   // 1010 = 10
+        
+        System.out.println("\ndecode(\"0b1010\") = " + bin);
+        
+        // Отрицательные числа в разных системах
+        Integer negHex = Integer.decode("-0xFF");  // -255
+        Integer negOct = Integer.decode("-077");   // -63
+        
+        System.out.println("decode(\"-0xFF\") = " + negHex);
+        System.out.println("decode(\"-077\") = " + negOct);
+    }
+}
