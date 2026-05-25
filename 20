@@ -1,0 +1,47 @@
+class Parent {
+    protected String name = "Родитель";
+    protected int value = 100;
+    
+    public void print() {
+        System.out.println("Метод родителя");
+    }
+    
+    public void show() {
+        System.out.println("show() из родителя");
+    }
+}
+
+class Child extends Parent {
+    private String name = "Ребёнок";
+    private int value = 200;
+    
+    public void test() {
+        System.out.println("super.name = " + super.name);     // Родитель
+        System.out.println("super.value = " + super.value);   // 100
+        
+        System.out.println("this.name = " + this.name);       // Наследник
+        System.out.println("this.value = " + this.value);     // 200
+        
+        System.out.println("name = " + name);                 // Наследник
+    }
+    
+    public void callMethods() {
+        this.print();    // вызывает метод текущего класса
+        super.print();   // вызывает метод родительского класса
+        super.show();    // вызывает метод родительского класса
+    }
+    
+    @Override
+    public void print() {
+        System.out.println("Метод ребёнка");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Child child = new Child();
+        child.test();
+        System.out.println();
+        child.callMethods();
+    }
+}
