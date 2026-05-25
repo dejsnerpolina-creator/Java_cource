@@ -1,0 +1,32 @@
+public enum Season {
+    WINTER("Холодно", -10),
+    SPRING("Теплеет", 10),
+    SUMMER("Жарко", 25),
+    AUTUMN("Прохладно", 8);
+    
+    private String description;
+    private int avgTemp;
+    
+    Season(String description, int avgTemp) {
+        this.description = description;
+        this.avgTemp = avgTemp;
+    }
+    
+    public String getDescription() {
+        return description;
+    }
+    
+    public int getAvgTemp() {
+        return avgTemp;
+    }
+    
+    // Дополнительный метод
+    public void printInfo() {
+        System.out.println(this + ": " + description + ", средняя температура " + avgTemp + "°C");
+    }
+    
+    public static void main(String[] args) {
+        Season summer = Season.SUMMER;
+        summer.printInfo();
+    }
+}
