@@ -1,0 +1,26 @@
+public class A {
+    public final int a;
+    
+    // ВАРИАНТ 1: инициализация в конструкторе
+    public A() {
+        a = 100;
+    }
+    
+    // ВАРИАНТ 2: конструктор с параметром
+    public A(int value) {
+        a = value;
+    }
+}
+
+// Инициализация при объявлении
+class B {
+    public final int a = 50;  
+}
+
+// Инициализация в блоке
+class C {
+    public final int a;
+    {
+        a = 75;  
+    }
+}
