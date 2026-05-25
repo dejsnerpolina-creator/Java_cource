@@ -1,0 +1,47 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Practice2 {
+    
+    static class Animal {}
+    static class Dog extends Animal {}
+    static class Cat extends Animal {}
+    
+    public static void main(String[] args) {
+        
+        List<Dog> dogs = new ArrayList<>();
+        dogs.add(new Dog());
+        
+        List<Cat> cats = new ArrayList<>();
+        cats.add(new Cat());
+        
+        List<Animal> animals = new ArrayList<>();
+        List<Object> objects = new ArrayList<>();
+        
+        // ===== <? extends Animal> =====
+        System.out.println("=== <? extends Animal> ===");
+        printAnimals(dogs);  // передали List<Dog>
+        printAnimals(cats);  // передали List<Cat>
+        printAnimals(animals); // передали List<Animal>
+        
+        // ===== <? super Dog> =====
+        System.out.println("\n=== <? super Dog> ===");
+        addDog(animals);  // передали List<Animal>
+        addDog(objects);  // передали List<Object>
+        addDog(dogs);     // передали List<Dog>
+    }
+    
+    // <? extends Animal> - можно читать, нельзя писать
+    public static void printAnimals(List<? extends Animal> list) {
+        System.out.println("Размер списка: " + list.size());
+        // Animal a = list.get(0);   // можно читать
+        // list.add(new Animal());   // ошибка! нельзя писать
+    }
+    
+    // <? super Dog> - можно писать, нельзя читать
+    public static void addDog(List<? super Dog> list) {
+        list.add(new Dog());         // можно писать
+        // Dog d = list.get(0);      // ошибка! нельзя читать
+        System.out.println("Dog добавлен");
+    }
+}
