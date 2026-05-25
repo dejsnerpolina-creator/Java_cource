@@ -1,0 +1,52 @@
+public class Practice2 {
+    public static void main(String[] args) {
+        
+        System.out.println("=== Пример с break и continue ===\n");
+        
+        // Выводим числа от 1 до 10, но:
+        // - пропускаем число 5 (continue)
+        // - останавливаемся на числе 8 (break)
+        
+        for (int i = 1; i <= 10; i++) {
+            
+            if (i == 5) {
+                System.out.println("Пропускаем число " + i + " (continue)");
+                continue;  
+            }
+            
+            if (i == 8) {
+                System.out.println("Дошли до числа " + i + " (break)");
+                break;  // выходим из цикла полностью
+            }
+            
+            System.out.println("Текущее число: " + i);
+        }
+        
+        System.out.println("\n=== Пример с while и continue ===\n");
+        
+        int j = 0;
+        while (j < 10) {
+            j++;
+            
+            if (j % 2 == 0) {
+                System.out.println("Число " + j + " - чётное, пропускаем");
+                continue;  // пропускаем чётные числа
+            }
+            
+            System.out.println("Нечётное число: " + j);
+        }
+        
+        System.out.println("\n=== Пример с do-while и break ===\n");
+        
+        int k = 0;
+        do {
+            k++;
+            System.out.println("Итерация: " + k);
+            
+            if (k == 3) {
+                System.out.println("Прерываем цикл на k = " + k);
+                break;
+            }
+        } while (k < 10);
+    }
+}
