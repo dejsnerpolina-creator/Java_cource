@@ -1,0 +1,92 @@
+public class Practice2 {
+    public static void main(String[] args) {
+        
+        // 1. instanceof с классами
+        System.out.println("=== instanceof с классами ===");
+        
+        String text = "Привет";
+        Integer number = 100;
+        Double pi = 3.14;
+        
+        System.out.println("text instanceof String: " + (text instanceof String));    // true
+        System.out.println("number instanceof Integer: " + (number instanceof Integer)); // true
+        System.out.println("pi instanceof Double: " + (pi instanceof Double));        // true
+        System.out.println("text instanceof Object: " + (text instanceof Object));    // true
+        
+        // 2. instanceof с иерархией
+        System.out.println("\n=== instanceof с иерархией ===");
+        
+        class Transport {}
+        class Car extends Transport {}
+        class Bike extends Transport {}
+        
+        Transport car = new Car();
+        Transport bike = new Bike();
+        Transport transport = new Transport();
+        
+        System.out.println("car instanceof Car: " + (car instanceof Car));           // true
+        System.out.println("car instanceof Transport: " + (car instanceof Transport)); // true
+        System.out.println("car instanceof Bike: " + (car instanceof Bike));         // false
+        
+        System.out.println("bike instanceof Bike: " + (bike instanceof Bike));       // true
+        System.out.println("bike instanceof Transport: " + (bike instanceof Transport)); // true
+        
+        System.out.println("transport instanceof Car: " + (transport instanceof Car)); // false
+        System.out.println("transport instanceof Transport: " + (transport instanceof Transport)); // true
+        
+        // 3. instanceof с null (ВАЖНО!)
+        System.out.println("\n=== instanceof с null ===");
+        
+        String nullString = null;
+        Integer nullInteger = null;
+        Object nullObject = null;
+        
+        System.out.println("nullString instanceof String: " + (nullString instanceof String));   // false
+        System.out.println("nullString instanceof Object: " + (nullString instanceof Object));   // false
+        System.out.println("nullInteger instanceof Integer: " + (nullInteger instanceof Integer)); // false
+        System.out.println("nullObject instanceof Object: " + (nullObject instanceof Object));   // false
+        
+        // 4. instanceof с интерфейсами
+        System.out.println("\n=== instanceof с интерфейсами ===");
+        
+        interface CanSwim {}
+        class Fish implements CanSwim {}
+        class Duck implements CanSwim {}
+        
+        Fish fish = new Fish();
+        Duck duck = new Duck();
+        
+        System.out.println("fish instanceof CanSwim: " + (fish instanceof CanSwim));   // true
+        System.out.println("duck instanceof CanSwim: " + (duck instanceof CanSwim));   // true
+        
+        // 5. instanceof с массивами
+        System.out.println("\n=== instanceof с массивами ===");
+        
+        int[] intArray = new int[3];
+        String[] strArray = new String[2];
+        Object[] objArray = new Object[4];
+        
+        System.out.println("intArray instanceof int[]: " + (intArray instanceof int[]));       // true
+        System.out.println("strArray instanceof String[]: " + (strArray instanceof String[])); // true
+        System.out.println("objArray instanceof Object[]: " + (objArray instanceof Object[])); // true
+        System.out.println("intArray instanceof Object: " + (intArray instanceof Object));     // true
+        
+        // 6. instanceof для безопасного приведения типов
+        System.out.println("\n=== instanceof для безопасного приведения ===");
+        
+        Object obj1 = "Это строка";
+        Object obj2 = 777;
+        
+        if (obj1 instanceof String) {
+            String myStr = (String) obj1;
+            System.out.println("obj1 - строка: " + myStr);
+        }
+        
+        if (obj2 instanceof String) {
+            String myStr = (String) obj2;
+            System.out.println("obj2 - строка");
+        } else {
+            System.out.println("obj2 - НЕ строка, а " + obj2.getClass().getSimpleName());
+        }
+    }
+}
