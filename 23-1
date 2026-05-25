@@ -1,0 +1,60 @@
+class Parent {
+    protected String name = "Родитель";
+    protected int value = 100;
+    
+    // Конструктор суперкласса
+    public Parent() {
+        System.out.println("Конструктор Parent без параметров");
+    }
+    
+    public Parent(String name) {
+        this.name = name;
+        System.out.println("Конструктор Parent с параметром: " + name);
+    }
+    
+    public void show() {
+        System.out.println("Метод show() из Parent");
+    }
+}
+
+class Child extends Parent {
+    private String name = "Ребёнок";
+    
+    // 1. Обращение к конструктору суперкласса
+    public Child() {
+        super();  // вызов конструктора Parent()
+        System.out.println("Конструктор Child");
+    }
+    
+    public Child(String name) {
+        super(name);  // вызов конструктора Parent(String)
+        System.out.println("Конструктор Child с параметром: " + name);
+    }
+    
+    public void test() {
+        // 2. Доступ к полю суперкласса
+        System.out.println("super.name = " + super.name);  // Родитель
+        System.out.println("this.name = " + this.name);    // Ребёнок
+        
+        // 3. Доступ к методу суперкласса
+        super.show();  // вызов метода из Parent
+        this.show();   // вызов метода из Child
+    }
+    
+    @Override
+    public void show() {
+        System.out.println("Метод show() из Child");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("=== Создание Child() ===");
+        Child c1 = new Child();
+        c1.test();
+        
+        System.out.println("\n=== Создание Child(\"Имя\") ===");
+        Child c2 = new Child("МойРебёнок");
+        c2.test();
+    }
+}
