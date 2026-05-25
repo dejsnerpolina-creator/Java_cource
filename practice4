@@ -1,0 +1,31 @@
+/**
+ * Программа для приветствия пользователя.
+ * Запрашивает имя и выводит приветствие.
+ * 
+ * @author Полина
+ * @version 1.0
+ * @since 2025
+ */
+public class Main {
+    
+    /**
+     * Главный метод программы.
+     * Считывает имя пользователя из консоли и выводит приветствие.
+     * 
+     * @param args аргументы командной строки (не используются)
+     */
+    public static void main(String[] args) {
+        // Создаём объект Scanner для чтения ввода с клавиатуры
+        java.util.Scanner scan = new java.util.Scanner(System.in);
+        
+        // Выводим приглашение ко вводу
+        System.out.print("Введите ваше имя: ");
+        
+        // Считываем введённую строку
+        String name = scan.next();
+        
+        System.out.println("Привет, " + name);
+        
+        scan.close();
+    }
+}
