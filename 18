@@ -1,0 +1,62 @@
+public class Calculator {
+    
+    // 1. Сложение целых чисел
+    public int sum(int... numbers) {
+        int result = 0;
+        for (int num : numbers) {
+            result += num;
+        }
+        System.out.print("sum(int...) -> ");
+        return result;
+    }
+    
+    // 2. Сложение чисел с плавающей точкой (перегрузка по типу)
+    public double sum(double... numbers) {
+        double result = 0;
+        for (double num : numbers) {
+            result += num;
+        }
+        System.out.print("sum(double...) -> ");
+        return result;
+    }
+    
+    // 3. Сложение с дополнительным параметром (перегрузка по количеству)
+    public int sum(int multiplier, int... numbers) {
+        int result = 0;
+        for (int num : numbers) {
+            result += num;
+        }
+        System.out.print("sum(int, int...) -> ");
+        return result * multiplier;
+    }
+    
+    // 4. Конкатенация строк (перегрузка по типу)
+    public String sum(String... strings) {
+        String result = "";
+        for (String s : strings) {
+            result += s;
+        }
+        System.out.print("sum(String...) -> ");
+        return result;
+    }
+    
+    // 5. Смешанные типы (Object...)
+    public void printAll(Object... objects) {
+        System.out.print("printAll(Object...) -> ");
+        for (Object obj : objects) {
+            System.out.print(obj + " ");
+        }
+        System.out.println();
+    }
+    
+    public static void main(String[] args) {
+        Calculator calc = new Calculator();
+        
+        System.out.println(calc.sum(1, 2, 3));           // int...
+        System.out.println(calc.sum(1.5, 2.5, 3.0));     // double...
+        System.out.println(calc.sum(10, 1, 2, 3));       // int, int...
+        System.out.println(calc.sum("A", "B", "C"));     // String...
+        
+        calc.printAll(1, "два", 3.0, true);              // Object...
+    }
+}
