@@ -1,0 +1,27 @@
+class Calculator {
+    
+    public int sum(int a, int b) {
+        return a + b;
+    }
+    
+    public int sum(int a, int b, int c) {
+        return a + b + c;
+    }
+    
+    public double sum(double a, double b) {
+        return a + b;
+    }
+    
+    public String sum(String a, String b) {
+        return a + b;
+    }
+    
+    public static void main(String[] args) {
+        Calculator calc = new Calculator();
+        
+        System.out.println(calc.sum(5, 10));           // 2 int
+        System.out.println(calc.sum(5, 10, 15));       // 3 int
+        System.out.println(calc.sum(3.5, 2.5));        // 2 double
+        System.out.println(calc.sum("Hello", "World")); // 2 String
+    }
+}
