@@ -1,0 +1,36 @@
+public class Parent {
+    
+    // private - только внутри этого класса
+    private int privateVar = 10;
+    private void privateMethod() {
+        System.out.println("privateMethod: доступен только в Parent");
+    }
+    
+    // default (без спецификатора) - в том же пакете
+    int defaultVar = 20;
+    void defaultMethod() {
+        System.out.println("defaultMethod: доступен в пакете pkg1");
+    }
+    
+    // protected - в том же пакете + подклассы в других пакетах
+    protected int protectedVar = 30;
+    protected void protectedMethod() {
+        System.out.println("protectedMethod: доступен в pkg1 и в подклассах");
+    }
+    
+    // public - везде
+    public int publicVar = 40;
+    public void publicMethod() {
+        System.out.println("publicMethod: доступен всем");
+    }
+    
+    // Метод для демонстрации private (внутри класса)
+    public void testPrivateInside() {
+        System.out.println("\n=== Внутри класса Parent ===");
+        System.out.println("privateVar = " + privateVar);  
+        privateMethod();  
+        System.out.println("defaultVar = " + defaultVar);  
+        System.out.println("protectedVar = " + protectedVar);  
+        System.out.println("publicVar = " + publicVar);  
+    }
+}
