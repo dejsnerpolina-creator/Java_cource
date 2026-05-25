@@ -1,0 +1,49 @@
+public class Practice1 {
+    public static void main(String[] args) {
+        
+        // 1. Бесконечный цикл while
+        System.out.println("Бесконечный цикл while (закомментирован)");
+        /*
+        while (true) {
+            System.out.println("Этот цикл никогда не остановится");
+        }
+        */
+        
+        // 2. Ещё один вариант while
+        System.out.println("Вариант while с условием 1 == 1");
+        /*
+        while (1 == 1) {
+            System.out.println("Тоже бесконечный цикл");
+        }
+        */
+        
+        // 3. Бесконечный цикл do-while
+        System.out.println("Бесконечный цикл do-while (закомментирован)");
+        /*
+        do {
+            System.out.println("Этот цикл тоже бесконечный");
+        } while (true);
+        */
+        
+        // 4. Ещё один вариант do-while
+        System.out.println("Вариант do-while с условием 5 > 3");
+        /*
+        do {
+            System.out.println("Тоже никогда не остановится");
+        } while (5 > 3);
+        */
+        
+        System.out.println("Примеры закомментированы, чтобы программа не зависла");
+        
+        // Простейший пример с выходом через break
+        int count = 0;
+        while (true) {
+            count++;
+            System.out.println("Итерация: " + count);
+            if (count >= 3) {
+                break;  // выход из бесконечного цикла
+            }
+        }
+        System.out.println("Цикл прерван через break");
+    }
+}
