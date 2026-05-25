@@ -1,0 +1,26 @@
+
+final class FinalClass {
+    public void someMethod() {
+        System.out.println("Метод final-класса");
+    }
+}
+
+class NormalClass {
+    public void someMethod() {
+        System.out.println("Метод обычного класса");
+    }
+}
+
+class ChildOfNormal extends NormalClass {
+    @Override
+    public void someMethod() {
+        System.out.println("Переопределённый метод");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        FinalClass obj = new FinalClass();
+        obj.someMethod();
+    }
+}
