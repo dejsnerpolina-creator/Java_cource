@@ -1,0 +1,13 @@
+public class Main {
+    public static void main(String[] args) {
+        var name = "Алексей"; 
+        var age = 25; 
+        var price = 99.99; 
+        var isStudent = true; 
+      
+        System.out.println(name);
+        System.out.println(age);
+        System.out.println(price);
+        System.out.println(isStudent);
+    }
+}
