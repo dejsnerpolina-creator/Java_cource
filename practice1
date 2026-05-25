@@ -1,0 +1,19 @@
+class Bird {
+    void go() {
+        System.out.println("Двигаюсь");
+    }
+}
+
+class Owl extends Птица {
+    @Override
+    void go() {
+        System.out.println("Лечу");
+    }
+}
+
+class Pinguin extends Птица {
+    @Override
+    void go() {
+        System.out.println("Плыву");
+    }
+}
