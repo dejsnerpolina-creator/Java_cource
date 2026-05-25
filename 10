@@ -1,0 +1,79 @@
+import java.util.Arrays;
+import java.util.Comparator;
+
+public class Practice2 {
+    public static void main(String[] args) {
+        
+        int[] numbers = {5, 2, 8, 1, 9, 3};
+        
+        System.out.println("=== 1. Arrays.toString() - преобразование в строку ===\n");
+        System.out.println("Массив в виде строки: " + Arrays.toString(numbers));
+        // Вывод: [5, 2, 8, 1, 9, 3]
+        
+        System.out.println("\n=== 2. Arrays.sort() - сортировка массива ===\n");
+        int[] sortArray = {5, 2, 8, 1, 9, 3};
+        Arrays.sort(sortArray);
+        System.out.println("После сортировки: " + Arrays.toString(sortArray));
+        // Вывод: [1, 2, 3, 5, 8, 9]
+        
+        // Сортировка с компаратором (для объектов) [citation:6]
+        String[] words = {"banana", "apple", "cherry", "date"};
+        Arrays.sort(words, Comparator.comparingInt(String::length));
+        System.out.println("Сортировка по длине строк: " + Arrays.toString(words));
+        // Вывод: [date, apple, banana, cherry]
+        
+        System.out.println("\n=== 3. Arrays.binarySearch() - бинарный поиск ===\n");
+        int[] searchArray = {10, 20, 30, 40, 50};
+        int index = Arrays.binarySearch(searchArray, 30);
+        System.out.println("Индекс элемента 30: " + index);  // 2
+        System.out.println("Индекс элемента 99 (не найден): " + Arrays.binarySearch(searchArray, 99));  // отрицательное число [citation:6]
+        
+        System.out.println("\n=== 4. Arrays.equals() - сравнение массивов ===\n");
+        int[] arr1 = {1, 2, 3, 4, 5};
+        int[] arr2 = {1, 2, 3, 4, 5};
+        int[] arr3 = {1, 2, 3, 4, 6};
+        
+        System.out.println("arr1 == arr2: " + Arrays.equals(arr1, arr2));  // true
+        System.out.println("arr1 == arr3: " + Arrays.equals(arr1, arr3));  // false
+        
+        // Для многомерных массивов используется deepEquals() [citation:3][citation:6]
+        int[][] deep1 = {{1, 2}, {3, 4}};
+        int[][] deep2 = {{1, 2}, {3, 4}};
+        System.out.println("\nГлубокое сравнение 2D массивов: " + Arrays.deepEquals(deep1, deep2));  // true
+        
+        System.out.println("\n=== 5. Arrays.compare() - сравнение с определением порядка ===\n");
+        int[] cmp1 = {1, 2, 3, 4, 5};
+        int[] cmp2 = {1, 2, 3, 4, 6};
+        int[] cmp3 = {1, 2, 3, 4, 4};
+        
+        System.out.println("compare(cmp1, cmp2): " + Arrays.compare(cmp1, cmp2));  // -1 (cmp1 < cmp2)
+        System.out.println("compare(cmp2, cmp1): " + Arrays.compare(cmp2, cmp1));  // 1  (cmp2 > cmp1)
+        System.out.println("compare(cmp1, cmp3): " + Arrays.compare(cmp1, cmp3));  // 1  (cmp1 > cmp3) [citation:3]
+        
+        System.out.println("\n=== 6. Дополнительные полезные методы ===\n");
+        
+        // Arrays.fill() - заполнение массива [citation:1][citation:4]
+        int[] fillArray = new int[5];
+        Arrays.fill(fillArray, 42);
+        System.out.println("Arrays.fill() с 42: " + Arrays.toString(fillArray));  // [42, 42, 42, 42, 42]
+        
+        // Заполнение диапазона
+        int[] fillRange = new int[5];
+        Arrays.fill(fillRange, 1, 4, 99);
+        System.out.println("Заполнение индексов 1-4: " + Arrays.toString(fillRange));  // [0, 99, 99, 99, 0]
+        
+        // Arrays.copyOf() - копирование массива [citation:2][citation:3]
+        int[] original = {1, 2, 3, 4, 5};
+        int[] copy = Arrays.copyOf(original, 8);
+        System.out.println("\nArrays.copyOf() (длина 8): " + Arrays.toString(copy));  // [1, 2, 3, 4, 5, 0, 0, 0]
+        
+        // Arrays.copyOfRange() - копирование диапазона [citation:7]
+        int[] rangeCopy = Arrays.copyOfRange(original, 1, 4);
+        System.out.println("Arrays.copyOfRange(1,4): " + Arrays.toString(rangeCopy));  // [2, 3, 4]
+        
+        // Arrays.mismatch() - поиск первого несовпадающего элемента [citation:3]
+        int[] mismatch1 = {1, 2, 3, 4, 5};
+        int[] mismatch2 = {1, 2, 3, 8, 5};
+        System.out.println("\nmismatch(): " + Arrays.mismatch(mismatch1, mismatch2));  // 3 (индекс первого различия)
+    }
+}
