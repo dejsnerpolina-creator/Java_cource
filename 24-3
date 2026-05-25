@@ -1,0 +1,23 @@
+class Parent {
+    public void printName() {
+        System.out.println("Родитель");
+    }
+    
+    public void showMessage(String msg) {
+        System.out.println("Сообщение: " + msg);
+    }
+}
+
+class Child extends Parent {
+    
+    // без аннотации - ошибка не обнаружится
+    public void printname() {  // Опечатка: name с маленькой буквы
+        System.out.println("Ребёнок");
+    }
+    
+    //  С аннотацией - компилятор покажет ошибку
+    @Override
+    public void showMsg(String msg) {  // Ошибка! Должен быть showMessage
+        System.out.println("Ребёнок: " + msg);
+    }
+}
