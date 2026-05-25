@@ -1,0 +1,28 @@
+public class Main {
+    public static void main(String[] args) {
+        // int -> byte
+        int i1 = 100;
+        byte b1 = (byte) i1;
+        System.out.println("int 100 -> byte: " + b1);  // 100
+        
+        // int -> byte 
+        int i2 = 300;  // 300 > 127, в byte не влезает
+        byte b2 = (byte) i2;
+        System.out.println("int 300 -> byte: " + b2);  // 44 (потеря данных)
+        
+        // double -> int
+        double d = 3.99;
+        int i3 = (int) d;
+        System.out.println("double 3.99 -> int: " + i3);  // 3 
+        
+        // long -> short
+        long l = 50000;
+        short s = (short) l;
+        System.out.println("long 50000 -> short: " + s);  // -15536 (переполнение)
+        
+        // float -> byte
+        float f = 200.5f;
+        byte b3 = (byte) f;
+        System.out.println("float 200.5 -> byte: " + b3);  // -56 (потеря)
+    }
+}
