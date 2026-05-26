@@ -1,0 +1,51 @@
+public class Outer {
+    
+    // public - доступен везде
+    public class PublicInner {
+        public void show() {
+            System.out.println("PublicInner: доступен всем");
+        }
+    }
+    
+    // private - доступен только внутри Outer
+    private class PrivateInner {
+        public void show() {
+            System.out.println("PrivateInner: доступен только внутри Outer");
+        }
+    }
+    
+    // protected - доступен в пакете и подклассам
+    protected class ProtectedInner {
+        public void show() {
+            System.out.println("ProtectedInner: доступен в пакете и подклассам");
+        }
+    }
+    
+    // default  - доступен только в пакете
+    class DefaultInner {
+        public void show() {
+            System.out.println("DefaultInner: доступен только в пакете");
+        }
+    }
+    
+    public void testAccess() {
+        // Из внешнего класса видны все внутренние классы
+        PublicInner pi = new PublicInner();
+        PrivateInner pri = new PrivateInner();
+        ProtectedInner pro = new ProtectedInner();
+        DefaultInner di = new DefaultInner();
+        
+        pi.show();
+        pri.show();
+        pro.show();
+        di.show();
+    }
+    
+    public static void main(String[] args) {
+        Outer outer = new Outer();
+        outer.testAccess();
+        
+       
+        PublicInner pi = outer.new PublicInner();
+    }
+}
