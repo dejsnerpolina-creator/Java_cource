@@ -1,0 +1,50 @@
+public class ConversionDemo {
+    public static void main(String[] args) {
+        
+        System.out.println("=== Преобразование String ↔ StringBuilder ===\n");
+        
+        // 1. String → StringBuilder
+        String str = "Hello World";
+        StringBuilder sb = new StringBuilder(str);
+        System.out.println("String → StringBuilder: " + sb);
+        
+        // 2. StringBuilder → String (через toString())
+        String strFromSb = sb.toString();
+        System.out.println("StringBuilder → String: " + strFromSb);
+        
+        System.out.println("\n=== Преобразование String ↔ StringBuffer ===\n");
+        
+        // 3. String → StringBuffer
+        String str2 = "Hello Java";
+        StringBuffer sbf = new StringBuffer(str2);
+        System.out.println("String → StringBuffer: " + sbf);
+        
+        // 4. StringBuffer → String (через toString())
+        String strFromSbf = sbf.toString();
+        System.out.println("StringBuffer → String: " + strFromSbf);
+        
+        System.out.println("\n=== Преобразование StringBuilder ↔ StringBuffer ===\n");
+        
+        // 5. StringBuilder → StringBuffer
+        StringBuilder sb2 = new StringBuilder("Привет Мир");
+        StringBuffer sbf2 = new StringBuffer(sb2.toString());
+        System.out.println("StringBuilder → StringBuffer: " + sbf2);
+        
+        // 6. StringBuffer → StringBuilder
+        StringBuffer sbf3 = new StringBuffer("Hello from Buffer");
+        StringBuilder sb3 = new StringBuilder(sbf3.toString());
+        System.out.println("StringBuffer → StringBuilder: " + sb3);
+        
+        System.out.println("\n=== Сокращённые способы ===\n");
+        
+        // StringBuilder в String (неявно при конкатенации)
+        StringBuilder sb4 = new StringBuilder("Число: ");
+        String result = sb4.append(42).toString();
+        System.out.println("Результат: " + result);
+        
+        // String в StringBuilder через метод append()
+        StringBuilder sb5 = new StringBuilder();
+        sb5.append("Добавляем ").append("строку ").append("по частям");
+        System.out.println("Построчное добавление: " + sb5);
+    }
+}
