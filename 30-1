@@ -1,0 +1,55 @@
+interface Vehicle {
+    void start();
+    
+    default void stop() {
+        System.out.println("Транспорт остановлен");
+    }
+    
+    static void info() {
+        System.out.println("Это интерфейс Vehicle");
+    }
+}
+
+class Car implements Vehicle {
+    
+    @Override
+    public void start() {
+        System.out.println("Машина завелась");
+    }
+    
+    @Override
+    public void stop() {
+        System.out.println("Машина остановилась");
+    }
+}
+
+class Bicycle implements Vehicle {
+    
+    @Override
+    public void start() {
+        System.out.println("Велосипед поехал");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        
+        System.out.println("=== Вызов static метода интерфейса ===");
+        Vehicle.info();
+        
+        System.out.println("\n=== Объект Car ===");
+        Car car = new Car();
+        car.start();      
+        car.stop();     
+        
+        System.out.println("\n=== Объект Bicycle ===");
+        Bicycle bike = new Bicycle();
+        bike.start();     
+        bike.stop();      
+        
+        System.out.println("\n Вызов через ссылку типа интерфейса ");
+        Vehicle v = new Car();
+        v.start();
+        v.stop();
+    }
+}
