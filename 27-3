@@ -1,0 +1,35 @@
+public class Outer {
+    
+    public class Inner {
+        private String privateField = "private поле Inner";
+        public String publicField = "public поле Inner";
+        protected String protectedField = "protected поле Inner";
+        String defaultField = "default поле Inner";
+        
+        private void privateMethod() {
+            System.out.println("private метод Inner");
+        }
+        
+        public void publicMethod() {
+            System.out.println("public метод Inner");
+        }
+    }
+    
+    public void testAccess() {
+        Inner inner = new Inner();
+        
+        System.out.println("=== Доступ из внешнего класса ===");
+        
+        System.out.println(inner.publicField);  
+        inner.publicMethod();        
+        
+        System.out.println(inner.protectedField);  
+        
+        System.out.println(inner.defaultField);    
+    }
+    
+    public static void main(String[] args) {
+        Outer outer = new Outer();
+        outer.testAccess();
+    }
+}
