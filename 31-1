@@ -1,0 +1,46 @@
+public class StringMethodsDemo {
+    public static void main(String[] args) {
+        
+        String str = "   Hello, World!   ";
+        String str2 = "Java Programming";
+        
+        // 1. length() - возвращает длину строки (количество символов)
+        System.out.println("1. length(): " + str.length()); // 19 (с пробелами)
+        
+        // 2. charAt() - возвращает символ по указанному индексу
+        System.out.println("2. charAt(7): " + str.charAt(7)); // 'o' (8-й символ)
+        
+        // 3. substring() - извлекает подстроку от beginIndex до endIndex
+        System.out.println("3. substring(5, 10): " + str.substring(5, 10)); // "Hello"
+        
+        // 4. trim() - удаляет пробелы в начале и конце строки
+        System.out.println("4. trim(): '" + str.trim() + "'"); // "Hello, World!"
+        
+        // 5. toLowerCase() / toUpperCase() - меняет регистр
+        System.out.println("5. toLowerCase(): " + str.toLowerCase()); // "   hello, world!   "
+        System.out.println("   toUpperCase(): " + str.toUpperCase()); // "   HELLO, WORLD!   "
+        
+        // 6. indexOf() - возвращает индекс первого вхождения символа/подстроки
+        System.out.println("6. indexOf('o'): " + str.indexOf('o')); // 7
+        System.out.println("   indexOf(\"World\"): " + str.indexOf("World")); // 9
+        
+        // 7. lastIndexOf() - возвращает индекс последнего вхождения
+        System.out.println("7. lastIndexOf('o'): " + str.lastIndexOf('o')); // 9
+        
+        // 8. replace() - заменяет символы или подстроки
+        System.out.println("8. replace('o', '0'): " + str.replace('o', '0')); // "   Hell0, W0rld!   "
+        System.out.println("   replace(\"World\", \"Java\"): " + str.replace("World", "Java")); // "   Hello, Java!   "
+        
+        // 9. split() - разбивает строку на массив по разделителю
+        System.out.println("9. split(','): ");
+        String[] parts = str.trim().split(",");
+        for (String part : parts) {
+            System.out.println("   \"" + part.trim() + "\"");
+        }
+        
+        // 10. contains() - проверяет, содержит ли строка подстроку
+        System.out.println("10. contains(\"Hello\"): " + str.contains("Hello")); // true
+        System.out.println("    contains(\"Java\"): " + str.contains("Java"));   // false
+        
+    }
+}
