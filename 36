@@ -1,0 +1,59 @@
+public class MultiCatchDemo {
+    
+    public static void main(String[] args) {
+        
+        // СИТУАЦИЯ 1: несколько исключений обрабатываются одинаково
+        System.out.println("=== СИТУАЦИЯ 1: Одинаковая обработка разных исключений ===\n");
+        
+        for (int i = 1; i <= 3; i++) {
+            try {
+                if (i == 1) {
+                    int a = 10 / 0;  // ArithmeticException
+                } else if (i == 2) {
+                    String s = null;
+                    s.length();       // NullPointerException
+                } else if (i == 3) {
+                    int[] arr = new int[3];
+                    arr[10] = 100;    // ArrayIndexOutOfBoundsException
+                }
+                
+            } catch (ArithmeticException | NullPointerException | ArrayIndexOutOfBoundsException e) {
+                // Все три исключения обрабатываются ОДИНАКОВО
+                System.out.println("Ошибка: " + e.getClass().getSimpleName());
+                System.out.println("Сообщение: " + e.getMessage());
+                System.out.println("Отправляем уведомление администратору\n");
+            }
+        }
+        
+        // СИТУАЦИЯ 2: иерархия исключений Ex1 <-- Ex2 <-- Ex3
+        System.out.println("=== СИТУАЦИЯ 2: Иерархия исключений ===\n");
+        System.out.println("Иерархия: Exception → RuntimeException → ArithmeticException\n");
+        
+        try {
+            int x = 10 / 0;  // ArithmeticException (самый глубокий потомок)
+            
+        } catch (ArithmeticException e) {
+            // Конкретное исключение - должно быть ПЕРВЫМ
+            System.out.println("1. Поймали ArithmeticException: " + e.getMessage());
+            
+        } catch (RuntimeException e) {
+            // Более общее - после конкретного
+            System.out.println("2. Поймали RuntimeException: " + e.getMessage());
+            
+        } catch (Exception e) {
+            // Самое общее - ПОСЛЕДНИМ
+            System.out.println("3. Поймали Exception: " + e.getMessage());
+        }
+        
+        // СИТУАЦИЯ 3: что НЕЛЬЗЯ делать
+        System.out.println("\n=== СИТУАЦИЯ 3: Что нельзя делать ===\n");
+        
+        System.out.println("   НЕЛЬЗЯ использовать | для исключений из одной иерархии:");
+        System.out.println("   catch (ArithmeticException | RuntimeException e) - ОШИБКА!");
+        System.out.println("   Потому что ArithmeticException - это подкласс RuntimeException\n");
+        
+        System.out.println("   НЕЛЬЗЯ ставить общий catch перед конкретным:");
+        System.out.println("   catch (Exception e) {}    // сначала общий");
+        System.out.println("   catch (ArithmeticException e) {}  // ОШИБКА! Недостижимый код");
+    }
+}
