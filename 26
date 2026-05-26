@@ -1,0 +1,59 @@
+import java.util.Objects;
+
+class Person {
+    private String name;
+    private int age;
+    private String passportId;
+    
+    public Person(String name, int age, String passportId) {
+        this.name = name;
+        this.age = age;
+        this.passportId = passportId;
+    }
+  
+    public String getName() { return name; }
+    public int getAge() { return age; }
+    public String getPassportId() { return passportId; }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        
+        if (obj == null) {
+            return false;
+        }
+        
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        
+        Person other = (Person) obj;
+        
+        return age == other.age &&
+               Objects.equals(name, other.name) &&
+               Objects.equals(passportId, other.passportId);
+    }
+    
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, age, passportId);
+    }
+    
+    @Override
+    public String toString() {
+        return "Person{name='" + name + "', age=" + age + ", passportId='" + passportId + "'}";
+    }
+    
+    public static void main(String[] args) {
+        Person p1 = new Person("Иван", 25, "AB123456");
+        Person p2 = new Person("Иван", 25, "AB123456");
+        Person p3 = new Person("Пётр", 30, "CD789012");
+        
+        System.out.println("p1.equals(p2): " + p1.equals(p2)); // true
+        System.out.println("p1.equals(p3): " + p1.equals(p3)); // false
+        System.out.println("p1.equals(null): " + p1.equals(null)); // false
+        System.out.println("p1.equals(p1): " + p1.equals(p1)); // true
+    }
+}
