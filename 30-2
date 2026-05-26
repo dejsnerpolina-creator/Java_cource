@@ -1,0 +1,28 @@
+interface Flyable {
+    default void move() {
+        System.out.println("Летит");
+    }
+}
+
+interface Drivable {
+    default void move() {
+        System.out.println("Едет");
+    }
+}
+
+class FlyingCar implements Flyable, Drivable {
+    
+    // Обязательно переопределяем конфликтующий метод
+    @Override
+    public void move() {
+        // Выбираем, какой интерфейс использовать
+        Flyable.super.move();   // Летит
+        Drivable.super.move();  // Едет
+        System.out.println("Летит и едет одновременно");
+    }
+    
+    public static void main(String[] args) {
+        FlyingCar fc = new FlyingCar();
+        fc.move();
+    }
+}
