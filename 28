@@ -1,0 +1,78 @@
+// Интерфейс со вложенным классом
+interface Calculator {
+    
+    // Вложенный класс внутри интерфейса (всегда static по умолчанию)
+    class Operation {
+        
+        public int add(int a, int b) {
+            return a + b;
+        }
+        
+        public int subtract(int a, int b) {
+            return a - b;
+        }
+        
+        public static void showInfo() {
+            System.out.println("Калькулятор готов к работе");
+        }
+    }
+    
+    // В интерфейс можно вложить несколько классов
+    class Constants {
+        public static final double PI = 3.14159;
+        public static final double E = 2.71828;
+        
+        public void printConstants() {
+            System.out.println("PI = " + PI);
+            System.out.println("E = " + E);
+        }
+    }
+}
+
+// Другой интерфейс со вложенным классом
+interface Message {
+    
+    class Printer {
+        public void print(String msg) {
+            System.out.println("Сообщение: " + msg);
+        }
+        
+        public static void printStatic(String msg) {
+            System.out.println("Статическое сообщение: " + msg);
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        
+        System.out.println("=== Вызов методов вложенного класса в интерфейсе Calculator ===\n");
+        
+        // Способ 1: Создание объекта вложенного класса
+        Calculator.Operation op = new Calculator.Operation();
+        System.out.println("add(5, 3) = " + op.add(5, 3));
+        System.out.println("subtract(10, 4) = " + op.subtract(10, 4));
+        
+        // Способ 2: Вызов статического метода
+        Calculator.Operation.showInfo();
+        
+        System.out.println("\n=== Вложенный класс Constants ===\n");
+        
+        Calculator.Constants constants = new Calculator.Constants();
+        constants.printConstants();
+        
+        // Доступ к статическим полям
+        System.out.println("\nДоступ к статическим полям:");
+        System.out.println("Calculator.Constants.PI = " + Calculator.Constants.PI);
+        System.out.println("Calculator.Constants.E = " + Calculator.Constants.E);
+        
+        System.out.println("\n=== Вложенный класс в интерфейсе Message ===\n");
+        
+        // Создание объекта
+        Message.Printer printer = new Message.Printer();
+        printer.print("Привет, мир!");
+        
+        // Вызов статического метода
+        Message.Printer.printStatic("Это статический вызов");
+    }
+}
