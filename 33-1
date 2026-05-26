@@ -1,0 +1,30 @@
+import java.util.Formatter;
+import java.util.Date;
+
+public class FormatterDemo {
+    public static void main(String[] args) {
+        
+        System.out.println("=== Спецификаторы форматирования ===\n");
+        
+        // 1. %s - строковое представление
+        String name = "Иван";
+        System.out.printf("1. %%s: Привет, %s!%n", name);
+        
+        // 2. %d - десятичное целое
+        int age = 25;
+        System.out.printf("2. %%d: Вам %d лет%n", age);
+        
+        // 3. %f - число с плавающей точкой
+        double price = 99.99;
+        System.out.printf("3. %%f: Цена: %.2f руб%n", price);
+        
+        // 4. %b - логическое значение
+        boolean isActive = true;
+        System.out.printf("4. %%b: Статус: %b%n", isActive);
+        
+        // 5. %e - экспоненциальное представление
+        double number = 12345.6789;
+        System.out.printf("5. %%e: Число в экспоненте: %e%n", number);
+        
+    }
+}
