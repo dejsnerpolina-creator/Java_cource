@@ -1,0 +1,30 @@
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Formatter;
+
+public class DateTimeFormatDemo {
+    public static void main(String[] args) {
+        
+        System.out.println("=== Спецификаторы для времени и даты ===\n");
+        
+        // Создаём объект с текущей датой и временем
+        Date now = new Date();
+        
+        // 1. %tH - час (00–23)
+        System.out.printf("1. %%tH (час 00-23): %tH%n", now);
+        
+        // 2. %tM - минуты (00–59)
+        System.out.printf("2. %%tM (минуты): %tM%n", now);
+        
+        // 3. %tS - секунды (00–59)
+        System.out.printf("3. %%tS (секунды): %tS%n", now);
+        
+        // 4. %tY - год (4 цифры)
+        System.out.printf("4. %%tY (год): %tY%n", now);
+        
+        // 5. %tB - полное название месяца
+        System.out.printf("5. %%tB (месяц): %tB%n", now);
+    }
+}
