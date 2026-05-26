@@ -1,0 +1,42 @@
+public class ExceptionDemo {
+    
+    // Метод, который генерирует перехваченное исключение
+    public static void caughtException() {
+        System.out.println("--- Метод с перехваченным исключением ---");
+        
+        try {
+            int a = 10;
+            int b = 0;
+            int result = a / b;  // ArithmeticException
+            System.out.println("Результат: " + result);
+        } catch (ArithmeticException e) {
+            System.out.println("исключение перехвачено: " + e.getMessage());
+            System.out.println("Программа продолжает работу");
+        }
+    }
+    
+    // Метод, который генерирует неперехваченное исключение
+    public static void uncaughtException() {
+        System.out.println("\n--- Метод с неперехваченным исключением ---");
+        
+        int[] arr = {1, 2, 3};
+        System.out.println("Элемент с индексом 10: " + arr[10]);  // ArrayIndexOutOfBoundsException
+        // Этот код не выполнится
+        System.out.println("Эта строка не будет напечатана");
+    }
+    
+    public static void main(String[] args) {
+        System.out.println("=== НАЧАЛО ПРОГРАММЫ ===\n");
+        
+        // 1. Перехваченное исключение - программа продолжит работу
+        caughtException();
+        
+        System.out.println("\nПродолжаем выполнение после перехваченного исключения...");
+        
+        // 2. Неперехваченное исключение - программа аварийно завершится
+        uncaughtException();
+        
+        // Этот код не выполнится из-за аварийной остановки
+        System.out.println("\nЭта строка не будет выведена - программа упала");
+    }
+}
