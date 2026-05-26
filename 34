@@ -1,0 +1,106 @@
+public class ExceptionsDemo {
+    
+    // 1. ArithmeticException - деление на ноль
+    public static void arithmeticExceptionExample() {
+        System.out.println("\n=== ArithmeticException ===");
+        try {
+            int a = 10;
+            int b = 0;
+            int result = a / b;
+            System.out.println("Результат: " + result);
+        } catch (ArithmeticException e) {
+            System.out.println("Ошибка: Деление на ноль! " + e.getMessage());
+        }
+    }
+    
+    // 2. ArrayIndexOutOfBoundsException - выход за границы массива
+    public static void arrayIndexOutOfBoundsExample() {
+        System.out.println("\n=== ArrayIndexOutOfBoundsException ===");
+        try {
+            int[] numbers = {1, 2, 3, 4, 5};
+            System.out.println("Элемент с индексом 10: " + numbers[10]);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Ошибка: Индекс выходит за границы массива!");
+            System.out.println("Длина массива: 5, попытка доступа к индексу 10");
+        }
+    }
+    
+    // 3. IllegalArgumentException - неверный аргумент метода
+    public static void setAge(int age) {
+        if (age < 0 || age > 150) {
+            throw new IllegalArgumentException("Возраст должен быть от 0 до 150, получено: " + age);
+        }
+        System.out.println("Возраст установлен: " + age);
+    }
+    
+    public static void illegalArgumentExceptionExample() {
+        System.out.println("\n=== IllegalArgumentException ===");
+        try {
+            setAge(-5);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Ошибка: " + e.getMessage());
+        }
+        
+        try {
+            setAge(25); // правильное значение
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    // 4. ClassCastException - неправильное приведение типов
+    public static void classCastExceptionExample() {
+        System.out.println("\n=== ClassCastException ===");
+        try {
+            Object obj = "Это строка";
+            Integer number = (Integer) obj; // ошибка: нельзя String привести к Integer
+            System.out.println("Число: " + number);
+        } catch (ClassCastException e) {
+            System.out.println("Ошибка: Нельзя привести String к Integer!");
+        }
+        
+        // Правильное приведение
+        Object obj2 = "Привет";
+        if (obj2 instanceof String) {
+            String str = (String) obj2;
+            System.out.println("Правильное приведение: " + str);
+        }
+    }
+    
+    // 5. NullPointerException - вызов метода у null-ссылки
+    public static void nullPointerExceptionExample() {
+        System.out.println("\n=== NullPointerException ===");
+        try {
+            String text = null;
+            int length = text.length(); // ошибка: вызов метода у null
+            System.out.println("Длина строки: " + length);
+        } catch (NullPointerException e) {
+            System.out.println("Ошибка: Попытка вызвать метод у null-ссылки!");
+        }
+        
+        // Как избежать NullPointerException
+        String text2 = null;
+        if (text2 != null) {
+            System.out.println("Длина: " + text2.length());
+        } else {
+            System.out.println("Строка равна null, операция отменена");
+        }
+    }
+    
+    public static void main(String[] args) {
+        System.out.println("========== ДЕМОНСТРАЦИЯ ИСКЛЮЧЕНИЙ ==========");
+        
+        arithmeticExceptionExample();
+        arrayIndexOutOfBoundsExample();
+        
+        illegalArgumentExceptionExample();
+        
+        classCastExceptionExample();
+        
+        nullPointerExceptionExample();
+        
+        System.out.println("\n========== ОБЩИЙ ВЫВОД ==========");
+        System.out.println("Программа продолжила работу после всех исключений,");
+        System.out.println("потому что они были корректно обработаны!");
+    }
+}
